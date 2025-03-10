@@ -9,6 +9,6 @@ export class UserRepo {
     }
 
     static getOne = async (username: string) => {
-        return User.query('username').eq(username).exec();
+        return User.get({ username });
     }
 }

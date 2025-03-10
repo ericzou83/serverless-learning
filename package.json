@@ -4,7 +4,8 @@
   "main": "dist/index.js",
   "scripts": {
     "deploy": "serverless deploy",
-    "dev": "nodemon --watch 'src/**' --watch '**/serverless.yml' --watch '**/functions.yml' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'serverless offline'"
+    "dev": "nodemon --watch 'src/**' --watch '**/serverless.yml' --watch '**/functions.yml' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'serverless offline'",
+    "test": "jest --coverage"
   },
   "author": "",
   "license": "ISC",
@@ -12,13 +13,19 @@
   "dependencies": {
     "aws-lambda": "^1.0.7",
     "dotenv": "^16.4.7",
-    "dynamoose": "^4.0.3"
+    "dynamoose": "^4.0.3",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.147",
     "@types/dotenv": "^6.1.1",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.13.10",
+    "@types/uuid": "^10.0.0",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.9",
     "serverless-offline": "^14.4.0",
+    "ts-jest": "^29.2.6",
     "typescript": "^5.8.2"
   }
 }
