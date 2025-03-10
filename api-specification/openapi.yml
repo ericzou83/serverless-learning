@@ -1,0 +1,37 @@
+openapi: '3.0.3'
+info:
+  title: API Title
+  version: '1.0'
+servers:
+- url: http://localhost:3000/dev
+  description: Local server
+paths:
+  /user/{id}:
+    get:
+      summary: Get user by ID
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+  /user:
+    post:
+      summary: Create user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                username:
+                  type: string
+      responses:
+        '201':
+          description: Created

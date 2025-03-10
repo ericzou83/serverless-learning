@@ -1,4 +1,7 @@
 import * as dynamoose from "dynamoose";
+import { initDynamoDb } from "../dynamo-setup";
+
+initDynamoDb();
 
 const schema = new dynamoose.Schema({
     username: {

@@ -1,22 +1,24 @@
 {
-  "name": "backend-learning",
+  "name": "serverless-learning",
   "version": "1.0.0",
   "main": "dist/index.js",
   "scripts": {
-    "start": "node dist/index.js",
-    "test": "nodemon --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'ts-node src/index.ts'",
-    "build": "tsc"
+    "deploy": "serverless deploy",
+    "dev": "nodemon --watch 'src/**' --watch '**/serverless.yml' --watch '**/functions.yml' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'serverless offline'"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@types/dotenv": "^6.1.1",
+    "aws-lambda": "^1.0.7",
     "dotenv": "^16.4.7",
-    "dynamoose": "^4.0.3",
-    "inquirer": "^12.4.2",
+    "dynamoose": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.147",
+    "@types/dotenv": "^6.1.1",
     "nodemon": "^3.1.9",
-    "ts-node": "^10.9.2",
+    "serverless-offline": "^14.4.0",
     "typescript": "^5.8.2"
   }
 }

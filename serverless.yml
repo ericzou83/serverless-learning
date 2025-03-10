@@ -1,0 +1,13 @@
+org: ericzou
+app: backend-learning
+service: backend-learning
+
+provider:
+  name: aws
+  runtime: nodejs22.x
+  stage: dev
+
+plugins:
+- serverless-offline
+
+functions: ${file(./src/controller/functions.yml)}

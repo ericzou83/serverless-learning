@@ -1,0 +1,13 @@
+getUser:
+  handler: src/controller/user/handler.getUser
+  events:
+  - http:
+      path: /user/{id}
+      method: get
+
+createUser:
+  handler: src/controller/user/handler.createUser
+  events:
+  - http:
+      path: /user
+      method: post
