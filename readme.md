@@ -32,3 +32,9 @@ npm run dev
 You can download following vscode plugin to view the api file in folder `api-specification`.
 
 https://marketplace.visualstudio.com/items?itemName=42Crunch.vscode-openapi
+
+## Unit test
+
+```sh
+npm run test
+```

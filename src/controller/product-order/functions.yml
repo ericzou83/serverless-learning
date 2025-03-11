@@ -1,0 +1,13 @@
+getProductOrder:
+  handler: src/controller/product-order/handler.getProductOrder
+  events:
+  - http:
+      path: /product-order/{id}
+      method: get
+
+createProductOrder:
+  handler: src/controller/product-order/handler.createProductOrder
+  events:
+  - http:
+      path: /product-order/
+      method: post

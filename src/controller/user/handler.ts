@@ -1,10 +1,19 @@
-import { Handler } from 'aws-lambda'
+import { APIGatewayEvent, Handler } from 'aws-lambda'
 
 import { UserRepo } from '../../repos/user'
 
-export const getUser: Handler = async (event, contenxt) => {
+export const getUser: Handler<APIGatewayEvent> = async (event, contenxt) => {
 
-  const username = event.pathParameters.id;
+  const { id: username } = (event.pathParameters as ({ id?: string | null } | null)) ?? {};
+
+  if (!username) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({
+        message: 'username is required'
+      })
+    }
+  }
 
   try {
     const user = await UserRepo.getOne(username)
@@ -21,7 +30,16 @@ export const getUser: Handler = async (event, contenxt) => {
   }
 }
 
-export const createUser: Handler = async (event, contenxt) => {
+export const createUser: Handler<APIGatewayEvent> = async (event) => {
+
+  if (!event.body) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({
+        message: 'Body is required'
+      })
+    }
+  }
 
   const { username, name } = JSON.parse(event.body);
 

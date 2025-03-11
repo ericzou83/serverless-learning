@@ -6,6 +6,37 @@ servers:
 - url: http://localhost:3000/dev
   description: Local server
 paths:
+  /product-order:
+    post:
+      summary: Create product order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                productId:
+                  type: string
+                username:
+                  type: string
+                count:
+                  type: integer
+      responses:
+        '201':
+          description: Created
+  /product-order/{id}:
+    get:
+      summary: Get product order by ID
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
   /user/{id}:
     get:
       summary: Get user by ID

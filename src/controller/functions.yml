@@ -1,1 +1,2 @@
-${file(./src/controller/user/functions.yml)}
+- ${file(./src/controller/product-order/functions.yml)}
+- ${file(./src/controller/user/functions.yml)}
